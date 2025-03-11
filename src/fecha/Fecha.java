@@ -1,24 +1,51 @@
 package fecha;
 
+/**
+ * Clase que va a guardar los tres elementos mas importantes de una fecha: El
+ * dia, el mes y el aÃ±o
+ */
 public class Fecha {
-	private int d; //día
-	private int m; //mes
-	private int a; //año
 
-	
+	/**
+	 * Variable que va a guardar el dia de la fecha
+	 */
+	private int d;
+
+	/**
+	 * Variable que va a guardar el mes de la fecha
+	 */
+	private int m;
+
+	/**
+	 * Variable que va a guardar el aÃ±o de la fecha
+	 */
+	private int a;
+
+	/**
+	 * Creo un constructor de fecha
+	 */
 	public Fecha() {
 
 	}
 
-	
+	/**
+	 * Creo un constructor de fecha que tiene estos parametros de entrada:
+	 * 
+	 * @param dia  Parametro que va a marcar el dia de la fecha
+	 * @param mes  Parametro que va a marcar el mes de la fecha
+	 * @param anio Parametro que va a marcar el aÃ±o de la fecha
+	 */
 	public Fecha(int dia, int mes, int anio) {
 		this.d = dia;
 		this.m = mes;
 		this.a = anio;
 	}
 
-	
-	
+	/**
+	 * Funcion que devuelve si la fecha con la que ha sido llamada es correcta
+	 * 
+	 * @return Devuele true si es correcta y false si no lo es
+	 */
 	public boolean fechaCorrecta() {
 		boolean diaCorrecto, mesCorrecto, anioCorrecto;
 		anioCorrecto = a > 0;
@@ -43,13 +70,20 @@ public class Fecha {
 		return diaCorrecto && mesCorrecto && anioCorrecto;
 	}
 
-	// Método esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+	/**
+	 * Metodo que comprueba si el aÃ±o es bisiesto. Solo lo usa fechaCorrecta, por
+	 * eso es privado
+	 * 
+	 * @return Devuelve true si es bisiesto y false si no lo es
+	 */
 	private boolean esBisiesto() {
 		boolean esBisiesto = (a % 4 == 0 && a % 100 != 0 || a % 400 == 0);
 		return esBisiesto;
 	}
 
-	// Método diaSiguiente
+	/**
+	 * Metodo que le aÃ±ade un dia a la fecha
+	 */
 	public void diaSiguiente() {
 		d++;
 		if (!fechaCorrecta()) {
@@ -62,7 +96,9 @@ public class Fecha {
 		}
 	}
 
-	// Método toString
+	/**
+	 * Metodo toString para sacar la fecha por pantalla de la forma deseada
+	 */
 	public String toString() {
 		if (d < 10 && m < 10) {
 			return "0" + d + "-0" + m + "-" + a;
