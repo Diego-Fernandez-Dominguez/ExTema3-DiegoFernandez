@@ -42,7 +42,7 @@ public class Fecha {
 	public Fecha(int dia, int mes, int anio) {
 		this.dia = dia;
 		this.mes = mes;
-		this.a = anio;
+		this.anio = anio;
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class Fecha {
 
 		boolean anioCorrecto;
 
-		anioCorrecto = a > 0;
+		anioCorrecto = anio > 0;
 		mesCorrecto = mes >= 1 && mes <= 12;
 		boolean diaMayor1 = dia >= 1;
 		switch (mes) {
@@ -88,7 +88,7 @@ public class Fecha {
 	 * @return Devuelve true si es bisiesto y false si no lo es
 	 */
 	private boolean esBisiesto() {
-		return a % 4 == 0 && a % 100 != 0 || a % 400 == 0;
+		return anio % 4 == 0 && anio % 100 != 0 || anio % 400 == 0;
 	}
 
 
@@ -102,7 +102,7 @@ public class Fecha {
 			mes++;
 			if (!fechaCorrecta()) {
 				mes = 1;
-				a++;
+				anio++;
 			}
 		}
 	}
@@ -115,13 +115,13 @@ public class Fecha {
 		String respuesta;
 
 		if (dia < DIEZ && mes < DIEZ) {
-			respuesta = "0" + dia + "-0" + mes + "-" + a;
+			respuesta = "0" + dia + "-0" + mes + "-" + anio;
 		} else if (dia < DIEZ && mes >= DIEZ) {
-			respuesta = "0" + dia + "-" + mes + "-" + a;
+			respuesta = "0" + dia + "-" + mes + "-" + anio;
 		} else if (dia >= DIEZ && mes < DIEZ) {
-			respuesta = dia + "-0" + mes + "-" + a;
+			respuesta = dia + "-0" + mes + "-" + anio;
 		} else {
-			respuesta = dia + "-" + mes + "-" + a;
+			respuesta = dia + "-" + mes + "-" + anio;
 		}
 
 		return respuesta;
