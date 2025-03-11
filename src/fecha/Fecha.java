@@ -23,7 +23,7 @@ public class Fecha {
 	/**
 	 * Variable que va a guardar el año de la fecha
 	 */
-	private int a; // a�o
+	private int anio; // a�o
 
 	/**
 	 * Constructor de fecha
